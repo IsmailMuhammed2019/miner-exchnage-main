@@ -37,7 +37,8 @@ export default function MemberRegister() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = target.value;
+    const { name, value } = e.target;
+    console.log('Input changed:', name, value); // Debug log
     setFormData(prev => ({ ...prev, [name]: value }));
 
     if (name === 'email') {
@@ -134,6 +135,11 @@ export default function MemberRegister() {
 
         {/* Registration Form */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+          {/* Debug Info - Remove in production */}
+          <div className="mb-4 p-3 bg-black/20 rounded-lg text-xs text-white">
+            <strong>Debug:</strong> {JSON.stringify(formData, null, 2)}
+          </div>
+          
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Personal Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
