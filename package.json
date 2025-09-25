@@ -20,6 +20,19 @@
     "react-router-dom": "^6.22.2",
     "react-hot-toast": "^2.4.1"
   },
+  "overrides": {
+    "@antv/react-g": {
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1"
+    },
+    "react-reconciler": {
+      "react": "^18.3.1"
+    }
+  },
+  "resolutions": {
+    "@antv/react-g": "^2.0.37",
+    "react-reconciler": "^0.26.2"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
     "@types/react": "^18.3.5",
