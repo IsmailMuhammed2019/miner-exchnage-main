@@ -93,9 +93,9 @@ export default function Login() {
         <div className="flex justify-center mb-6">
           <Logo size="lg" showText={false} />
         </div>
-          <h2 className="text-4xl font-bold text-white mb-2">
-            Welcome Back
-          </h2>
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent group-hover:from-indigo-300 group-hover:to-purple-300 transition-all duration-300">
+                      Miner Exchange
+                    </h1>
           <p className="text-gray-300 mb-8">
             Sign in to your Miner Exchange account
           </p>
