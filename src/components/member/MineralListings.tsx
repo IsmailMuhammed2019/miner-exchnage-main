@@ -87,7 +87,27 @@ export default function MineralListings() {
   }, [user, filters]);
 
   if (loading) {
-    return <div>Loading listings...</div>;
+    return (
+      <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div className="p-8 text-center">
+          <div className="mx-auto h-12 w-12 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <svg className="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+          </div>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">No Listings Yet</h3>
+          <p className="text-gray-500 mb-4">
+            Start by creating your first mineral listing to begin trading.
+          </p>
+          <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            Create Your First Listing
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
