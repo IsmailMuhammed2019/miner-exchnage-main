@@ -93,7 +93,7 @@ export default function Login() {
         <div className="flex justify-center mb-6">
           <Logo size="lg" showText={false} />
         </div>
-        <h1 className="text-6xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent group-hover:from-indigo-300 group-hover:to-purple-300 transition-all duration-300">
+        <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent group-hover:from-indigo-300 group-hover:to-purple-300 transition-all duration-300 mb-2">
                       Miner Exchange
                     </h1>
           <p className="text-gray-300 mb-8">
