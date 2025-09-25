@@ -14,11 +14,13 @@ import ComplianceDashboard from './pages/ComplianceDashboard';
 import AnalyticsDashboard from './pages/AnalyticsDashboard';
 import MemberAreaDashboard from './pages/MemberAreaDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import DebugEnv from './components/DebugEnv';
 
 export default function App() {
   return (
     <Router>
       <AuthProvider>
+        <DebugEnv />
         <Toaster position="top-right" />
         <Routes>
           <Route path="/" element={<Layout />}>
