@@ -11,22 +11,23 @@ console.log('All env vars:', import.meta.env);
 // Fallback for testing - replace with your actual Supabase URL
 const fallbackUrl = 'https://pfsttrrbqsnzhvurchxp.supabase.co';
 
-// Validate environment variables
+// Determine final URL and key
+let finalUrl: string;
+let finalKey: string;
+
 if (!supabaseUrl || supabaseUrl === 'VITE_SUPABASE_URL') {
   console.warn('Using fallback URL for testing');
-  // For now, use the fallback URL
-  const finalUrl = fallbackUrl;
-  const finalKey = supabaseAnonKey;
-  
-  if (!finalKey) {
-    throw new Error('Missing VITE_SUPABASE_ANON_KEY environment variable');
-  }
-  
-  export const supabase = createClient(finalUrl, finalKey);
+  finalUrl = fallbackUrl;
+  finalKey = supabaseAnonKey || '';
 } else {
-  if (!supabaseAnonKey) {
-    throw new Error('Missing VITE_SUPABASE_ANON_KEY environment variable');
-  }
-  
-  export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+  finalUrl = supabaseUrl;
+  finalKey = supabaseAnonKey || '';
 }
+
+// Validate final key
+if (!finalKey) {
+  throw new Error('Missing VITE_SUPABASE_ANON_KEY environment variable');
+}
+
+// Create and export the client
+export const supabase = createClient(finalUrl, finalKey);
