@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { LogOut, Home, Users, LayoutDashboard, Heart, FileCheck, PieChart, Users2, Menu, X, Bell, Settings, User, ChevronDown } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import Logo from './Logo';
 
 export default function Layout() {
   const { user, signOut, isAdmin } = useAuth();
@@ -31,26 +32,8 @@ export default function Layout() {
             <div className="flex justify-between h-16">
               {/* Logo and Brand */}
               <div className="flex items-center">
-                <Link to="/" className="flex items-center space-x-3 group">
-                  <img 
-                    src="/logo.png" 
-                    alt="Miner Exchange Logo" 
-                    className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
-                    onError={(e) => {
-                      // Fallback to icon if logo fails to load
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.nextElementSibling.style.display = 'block';
-                    }}
-                  />
-                  <Home className="h-8 w-8 text-indigo-600 hidden" />
-                  <div className="hidden sm:block">
-                    <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent group-hover:from-indigo-700 group-hover:via-purple-700 group-hover:to-pink-700 transition-all duration-300">
-                      Miner Exchange
-                    </h1>
-                    <p className="text-xs text-gray-500 font-medium tracking-wide">
-                      MINING PLATFORM
-                    </p>
-                  </div>
+                <Link to="/" className="group">
+                  <Logo size="md" showText={true} className="group-hover:scale-105 transition-transform" />
                 </Link>
               </div>
 

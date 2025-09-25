@@ -4,6 +4,7 @@ import { KeyRound, Mail, Lock, Eye, EyeOff, ArrowRight, Shield, CheckCircle } fr
 import { supabase } from '../lib/supabase';
 import toast from 'react-hot-toast';
 import BackButton from '../components/ui/BackButton';
+import Logo from '../components/Logo';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -89,16 +90,9 @@ export default function Login() {
         
         {/* Header */}
         <div className="text-center">
-          <div className="flex justify-center mb-6">
-            <img 
-              src="/logo.png"
-              alt="Miner Exchange Logo"
-              className="h-20 w-auto object-contain"
-              onError={(e) => {
-                e.currentTarget.src = "https://res.cloudinary.com/dyas8qe3h/image/upload/v1734950125/Miner_LOGO_tfptqo.webp";
-              }}
-            />
-          </div>
+        <div className="flex justify-center mb-6">
+          <Logo size="lg" showText={false} />
+        </div>
           <h2 className="text-4xl font-bold text-white mb-2">
             Welcome Back
           </h2>
