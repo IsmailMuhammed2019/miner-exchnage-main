@@ -1,12 +1,10 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
-import Home from './pages/Home';
+import AuthLayout from './components/AuthLayout';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
 import Marketplace from './pages/Marketplace';
 import CooperativeDashboard from './pages/CooperativeDashboard';
 import CSRDashboard from './pages/CSRDashboard';
@@ -25,12 +23,15 @@ export default function App() {
       <AuthProvider>
         <Toaster position="top-right" />
         <Routes>
+          {/* Auth pages without header */}
+          <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
+          <Route path="/register" element={<AuthLayout><Register /></AuthLayout>} />
+          <Route path="/member-login" element={<AuthLayout><MemberLogin /></AuthLayout>} />
+          <Route path="/member-register" element={<AuthLayout><MemberRegister /></AuthLayout>} />
+          
+          {/* Main app with header */}
           <Route path="/" element={<Layout />}>
             <Route index element={<ProtectedRoute><SmartDashboard /></ProtectedRoute>} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-            <Route path="member-login" element={<MemberLogin />} />
-            <Route path="member-register" element={<MemberRegister />} />
             <Route path="marketplace" element={<Marketplace />} />
             <Route
               path="dashboard"

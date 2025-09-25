@@ -3,9 +3,6 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-// Debug environment variables (remove in production)
-// console.log('Supabase URL:', supabaseUrl);
-// console.log('Supabase Anon Key:', supabaseAnonKey ? 'Set' : 'Not set');
 
 // Fallback for testing - replace with your actual Supabase URL
 const fallbackUrl = 'https://pfsttrrbqsnzhvurchxp.supabase.co';
@@ -15,7 +12,6 @@ let finalUrl: string;
 let finalKey: string;
 
 if (!supabaseUrl || supabaseUrl === 'VITE_SUPABASE_URL') {
-  console.warn('Using fallback URL for testing');
   finalUrl = fallbackUrl;
   finalKey = supabaseAnonKey || '';
 } else {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Eye, EyeOff, User, Mail, Phone, MapPin, Building, CheckCircle, AlertCircle } from 'lucide-react';
+import { Eye, EyeOff, User, Mail, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function MemberRegister() {
   const [formData, setFormData] = useState({
@@ -36,10 +36,9 @@ export default function MemberRegister() {
     return phoneRegex.test(phone.replace(/\s/g, ''));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    console.log('Input changed:', name, value); // Debug log
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({ ...prev, [name]: value }));
 
     if (name === 'email') {
       setEmailValid(validateEmail(value));
@@ -136,10 +135,6 @@ export default function MemberRegister() {
 
         {/* Registration Form */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-          {/* Debug Info - Remove in production */}
-          <div className="mb-4 p-3 bg-black/20 rounded-lg text-xs text-white">
-            <strong>Debug:</strong> {JSON.stringify(formData, null, 2)}
-          </div>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Personal Information */}
