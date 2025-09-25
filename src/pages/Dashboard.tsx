@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import MemberStats from '../components/member/MemberStats';
 import MineralListings from '../components/member/MineralListings';
 import SubmissionHistory from '../components/member/SubmissionHistory';
 import NewListingModal from '../components/member/NewListingModal';
@@ -246,10 +245,6 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Stats Overview */}
-        <div className="mb-8">
-      <MemberStats />
-        </div>
 
         {/* Quick Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">

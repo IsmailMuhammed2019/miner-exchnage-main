@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import MarketplaceHeader from '../components/marketplace/MarketplaceHeader';
+import { useState, useEffect } from 'react';
 import SearchBar from '../components/marketplace/SearchBar';
 import MarketplaceFilters from '../components/marketplace/MarketplaceFilters';
 import MineralCard from '../components/marketplace/MineralCard';
@@ -34,12 +33,12 @@ export default function Marketplace() {
           quantity: listing.quantity,
           price_per_unit: listing.pricePerUnit,
           location: listing.country,
-          description: listing.description,
+          description: `High-quality ${listing.mineralName} from ${listing.country}`,
           member_id: '1',
           created_at: new Date().toISOString(),
           status: 'active' as const,
           verification_status: 'verified' as const,
-          image_url: listing.imageUrl
+          image_url: undefined
         })));
       } finally {
         setLoading(false);
@@ -149,11 +148,21 @@ export default function Marketplace() {
         </div>
 
         {/* Mineral Cards Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredListings.map((listing) => (
-            <MineralCard key={listing.id} listing={listing} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="bg-white rounded-2xl shadow-lg p-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Loading minerals...</h3>
+              <p className="text-gray-600">Please wait while we fetch the latest listings.</p>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredListings.map((listing) => (
+              <MineralCard key={listing.id} listing={listing} />
+            ))}
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredListings.length === 0 && (
