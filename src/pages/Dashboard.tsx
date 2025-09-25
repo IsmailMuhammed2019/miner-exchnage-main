@@ -46,14 +46,24 @@ export default function Dashboard() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="text-center">
               <div className="flex justify-center mb-8">
-                <img 
-                  src="/logo.png"
-                  alt="Miner Exchange Logo"
-                  className="h-24 w-auto object-contain"
-                  onError={(e) => {
-                    e.currentTarget.src = "https://res.cloudinary.com/dyas8qe3h/image/upload/v1734950125/Miner_LOGO_tfptqo.webp";
-                  }}
-                />
+                <div className="flex items-center space-x-4 group">
+                  <img 
+                    src="/logo.png"
+                    alt="Miner Exchange Logo"
+                    className="h-24 w-auto object-contain transition-transform group-hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://res.cloudinary.com/dyas8qe3h/image/upload/v1734950125/Miner_LOGO_tfptqo.webp";
+                    }}
+                  />
+                  <div className="text-center">
+                    <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent group-hover:from-indigo-300 group-hover:to-purple-300 transition-all duration-300">
+                      Miner Exchange
+                    </h1>
+                    <p className="text-sm text-indigo-200 font-medium tracking-wide">
+                      MINING PLATFORM
+                    </p>
+                  </div>
+                </div>
               </div>
               
               <h1 className="text-6xl font-extrabold text-white mb-6">
