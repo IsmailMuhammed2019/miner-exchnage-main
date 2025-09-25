@@ -208,7 +208,7 @@ export default function Login() {
             </div>
 
             {/* Register Link */}
-            <div className="text-center">
+            <div className="text-center space-y-4">
               <p className="text-gray-300">
                 Don't have an account?{' '}
                 <Link 
@@ -218,6 +218,24 @@ export default function Login() {
                   Register your cooperative
                 </Link>
               </p>
+              
+              <div className="border-t border-gray-600 pt-4">
+                <p className="text-gray-300 mb-3">Are you an individual miner?</p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link 
+                    to="/member-login" 
+                    className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+                  >
+                    Member Login
+                  </Link>
+                  <Link 
+                    to="/member-register" 
+                    className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+                  >
+                    Member Register
+                  </Link>
+                </div>
+              </div>
             </div>
           </form>
         </div>

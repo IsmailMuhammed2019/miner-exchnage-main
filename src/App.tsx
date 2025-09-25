@@ -13,6 +13,9 @@ import CSRDashboard from './pages/CSRDashboard';
 import ComplianceDashboard from './pages/ComplianceDashboard';
 import AnalyticsDashboard from './pages/AnalyticsDashboard';
 import MemberAreaDashboard from './pages/MemberAreaDashboard';
+import MemberLogin from './pages/MemberLogin';
+import MemberRegister from './pages/MemberRegister';
+import MemberDashboard from './pages/MemberDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
@@ -25,6 +28,8 @@ export default function App() {
             <Route index element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="member-login" element={<MemberLogin />} />
+            <Route path="member-register" element={<MemberRegister />} />
             <Route path="marketplace" element={<Marketplace />} />
             <Route
               path="dashboard"
@@ -71,6 +76,14 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <MemberAreaDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="member-dashboard"
+              element={
+                <ProtectedRoute>
+                  <MemberDashboard />
                 </ProtectedRoute>
               }
             />

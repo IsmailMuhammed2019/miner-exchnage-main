@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Miner Exchange Account</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .welcome-text {
+            font-size: 18px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .confirmation-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .confirmation-box h2 {
+            margin: 0 0 15px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .confirmation-box p {
+            margin: 0 0 25px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .confirm-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #667eea;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .confirm-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .features {
+            margin: 30px 0;
+        }
+        .features h3 {
+            color: #2d3748;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+        }
+        .feature-list li:before {
+            content: "✓";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .footer {
+            background-color: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .footer p {
+            margin: 0 0 10px;
+            color: #718096;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .security-note {
+            background-color: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .security-note p {
+            margin: 0;
+            color: #4a5568;
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            .header, .content, .footer {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .confirmation-box h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">⛏️</div>
+            <h1>Welcome to Miner Exchange</h1>
+            <p>Your Mining Platform Awaits</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-text">
+                <strong>Thank you for joining our mining community!</strong>
+            </div>
+            
+            <div class="confirmation-box">
+                <h2>Confirm Your Account</h2>
+                <p>Click the button below to activate your account and start trading minerals</p>
+                <a href="{{ .ConfirmationURL }}" class="confirm-button">Confirm My Account</a>
+            </div>
+            
+            <div class="features">
+                <h3>What You Can Do:</h3>
+                <ul class="feature-list">
+                    <li>List and trade minerals globally</li>
+                    <li>Connect with verified mining cooperatives</li>
+                    <li>Track your mining operations and compliance</li>
+                    <li>Access real-time market data and analytics</li>
+                    <li>Join a secure, transparent marketplace</li>
+                </ul>
+            </div>
+            
+            <div class="security-note">
+                <p><strong>Security Note:</strong> This confirmation link will expire in 24 hours. If you didn't create an account, please ignore this email.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Miner Exchange Platform</strong></p>
+            <p>Connecting miners worldwide for sustainable trading</p>
+            <p>
+                <a href="https://miner-exchange.vercel.app">Visit Our Platform</a> | 
+                <a href="mailto:support@miner-exchange.com">Contact Support</a>
+            </p>
+            <p style="font-size: 12px; color: #a0aec0;">
+                © 2024 Miner Exchange. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
