@@ -104,7 +104,8 @@ export default function Register() {
         password: formData.password,
         options: {
           data: {
-            role: 'admin'
+            role: 'admin',
+            user_type: 'cooperative'
           }
         }
       });

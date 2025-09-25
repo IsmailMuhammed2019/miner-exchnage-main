@@ -16,6 +16,7 @@ import MemberAreaDashboard from './pages/MemberAreaDashboard';
 import MemberLogin from './pages/MemberLogin';
 import MemberRegister from './pages/MemberRegister';
 import MemberDashboard from './pages/MemberDashboard';
+import SmartDashboard from './components/SmartDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
         <Toaster position="top-right" />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route index element={<ProtectedRoute><SmartDashboard /></ProtectedRoute>} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="member-login" element={<MemberLogin />} />
@@ -35,7 +36,7 @@ export default function App() {
               path="dashboard"
               element={
                 <ProtectedRoute>
-                  <Dashboard />
+                  <SmartDashboard />
                 </ProtectedRoute>
               }
             />

@@ -80,7 +80,8 @@ export default function MemberRegister() {
         location: formData.location,
         mining_experience: formData.miningExperience,
         specialization: formData.specialization,
-        user_type: 'member'
+        user_type: 'member',
+        role: 'member'
       });
       setSuccess(true);
       setTimeout(() => {
