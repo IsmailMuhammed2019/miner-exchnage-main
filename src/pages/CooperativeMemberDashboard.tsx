@@ -12,10 +12,19 @@ import {
   Star, 
   Shield, 
   Building2, 
-  Globe
+  Globe, 
+  Heart, 
+  FileCheck, 
+  PieChart, 
+  Users2,
+  BarChart3,
+  Settings,
+  Bell,
+  MapPin,
+  Calendar
 } from 'lucide-react';
 
-export default function Dashboard() {
+export default function CooperativeMemberDashboard() {
   const { user } = useAuth();
   const [stats, setStats] = useState<DynamicStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -238,18 +247,19 @@ export default function Dashboard() {
               Welcome back, {user?.email?.split('@')[0]}!
             </h1>
             <p className="text-xl text-indigo-100 mb-8">
-              Manage your mineral listings and track your mining operations
+              Manage your cooperative's mineral listings and track mining operations
             </p>
             
             {/* Quick Actions */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <button className="group flex items-center px-6 py-3 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
-                <Package className="h-5 w-5 mr-2 group-hover:rotate-90 transition-transform" />
-                New Listing
-              </button>
-              <Link to="/marketplace" className="group flex items-center px-6 py-3 bg-white/20 text-white rounded-xl font-semibold hover:bg-white/30 transition-all duration-200 transform hover:-translate-y-0.5">
-                <Activity className="h-5 w-5 mr-2" />
+              <Link to="/marketplace" className="group flex items-center px-6 py-3 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg">
+                <Package className="h-5 w-5 mr-2" />
                 Browse Marketplace
+                <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link to="/analytics" className="group flex items-center px-6 py-3 bg-white/20 text-white rounded-xl font-semibold hover:bg-white/30 transition-all duration-200 transform hover:-translate-y-0.5">
+                <Activity className="h-5 w-5 mr-2" />
+                View Analytics
                 <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -259,7 +269,6 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
         {/* Quick Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
@@ -318,7 +327,7 @@ export default function Dashboard() {
 
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
             <div className="flex items-center justify-between">
-        <div>
+              <div>
                 <p className="text-sm font-medium text-gray-600">Network Size</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {loading ? '...' : stats?.networkSize || 0}
@@ -337,13 +346,13 @@ export default function Dashboard() {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Personal Stats */}
+          {/* Cooperative Overview */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
             <div className="p-6 border-b border-gray-100">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold text-gray-900">Personal Stats</h2>
-                <Link to="/member-dashboard" className="text-indigo-600 hover:text-indigo-700 font-medium text-sm">
-                  View Details
+                <h2 className="text-xl font-bold text-gray-900">Cooperative Overview</h2>
+                <Link to="/cooperative" className="text-indigo-600 hover:text-indigo-700 font-medium text-sm">
+                  Manage
                 </Link>
               </div>
             </div>
@@ -351,31 +360,31 @@ export default function Dashboard() {
               <div className="space-y-4">
                 <div className="flex items-center p-4 bg-green-50 rounded-lg">
                   <div className="p-2 bg-green-100 rounded-lg mr-4">
-                    <Package className="h-5 w-5 text-green-600" />
+                    <Users className="h-5 w-5 text-green-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Your Listings</p>
-                    <p className="text-sm text-gray-500">{stats?.activeListings || 0} active mineral listings</p>
+                    <p className="font-medium text-gray-900">Active Members</p>
+                    <p className="text-sm text-gray-500">{stats?.networkSize || 0} cooperative members</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center p-4 bg-blue-50 rounded-lg">
                   <div className="p-2 bg-blue-100 rounded-lg mr-4">
-                    <DollarSign className="h-5 w-5 text-blue-600" />
+                    <Package className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Total Revenue</p>
-                    <p className="text-sm text-gray-500">${stats?.totalRevenue.toLocaleString() || '0'} earned</p>
+                    <p className="font-medium text-gray-900">Total Listings</p>
+                    <p className="text-sm text-gray-500">{stats?.activeListings || 0} active mineral listings</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center p-4 bg-purple-50 rounded-lg">
                   <div className="p-2 bg-purple-100 rounded-lg mr-4">
-                    <Users className="h-5 w-5 text-purple-600" />
+                    <Shield className="h-5 w-5 text-purple-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Connections</p>
-                    <p className="text-sm text-gray-500">{stats?.networkSize || 0} network connections</p>
+                    <p className="font-medium text-gray-900">Compliance Status</p>
+                    <p className="text-sm text-gray-500">{stats?.complianceRate.toFixed(0) || 0}% compliance rate</p>
                   </div>
                 </div>
               </div>
@@ -419,8 +428,8 @@ export default function Dashboard() {
                     <Users className="h-5 w-5 text-purple-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">New connection</p>
-                    <p className="text-sm text-gray-500">Connected with Silver Valley Mining • 3 days ago</p>
+                    <p className="font-medium text-gray-900">New member joined</p>
+                    <p className="text-sm text-gray-500">John Doe joined the cooperative • 3 days ago</p>
                   </div>
                 </div>
               </div>
@@ -470,7 +479,6 @@ export default function Dashboard() {
           </Link>
         </div>
       </div>
-
     </div>
   );
 }

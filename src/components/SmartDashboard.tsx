@@ -3,6 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import Dashboard from '../pages/Dashboard';
 import MemberDashboard from '../pages/MemberDashboard';
 import CooperativeDashboard from '../pages/CooperativeDashboard';
+import CooperativeMemberDashboard from '../pages/CooperativeMemberDashboard';
 
 export default function SmartDashboard() {
   const { userType, isAdmin } = useAuth();
@@ -27,7 +28,7 @@ export default function SmartDashboard() {
       if (isAdmin) {
         return <CooperativeDashboard />;
       } else {
-        return <Dashboard />; // Regular cooperative member
+        return <CooperativeMemberDashboard />; // Regular cooperative member
       }
     default:
       return <Dashboard />; // Fallback to default dashboard
